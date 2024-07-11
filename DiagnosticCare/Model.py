@@ -1,3 +1,5 @@
+import pickle
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -25,3 +27,6 @@ sintomas_2 = df_test.drop('prognosis', axis=1)
 pred_model2 = model.predict(sintomas_2)
 target_2 = df_test['prognosis']
 print(classification_report(target_2,pred_model2))
+
+with open('./DiagnosticCare/diagnostic_model.pkl', 'wb') as f:
+    pickle.dump(model, f)
