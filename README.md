@@ -5,3 +5,5 @@ Diagnostic Care es un proyecto innovador diseñado para ofrecer diagnósticos m�
 ![alt text](image.png)
 
 ## Arquitectura del proyecto
+
+![image](https://github.com/OAGgithub/SIC-Python/assets/128623376/2b0f7a47-012b-403c-93a4-d6c145c6b97e)
