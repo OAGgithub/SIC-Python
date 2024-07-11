@@ -1,0 +1,66 @@
+version: "3.1"
+
+intents:
+  - saludar
+  - despedida
+  - afirmar
+  - negar
+  - buen_humor
+  - mal_humor
+  - desafio_bot
+  - preguntar_resultado
+
+actions:
+  - action_verificar_resultado_medico
+  - utter_saludar
+  - utter_iamabot
+  - utter_resultado
+  - utter_despedida
+  - utter_alegrar
+  - utter_te_ayudo
+  - utter_feliz
+
+responses:
+  utter_saludar:
+    - text: "¡Hola! ¿Cómo puedo ayudarte?"
+    - text: "Buen día. ¿Cómo puedo asistirte hoy?"
+
+  utter_iamabot:
+    - text: "Lo siento, soy un bot."
+
+  utter_resultado:
+    - text: "Tus resultados médicos son: {result}"
+
+  utter_despedida:
+    - text: "¡Adiós, que tengas un buen día!"
+
+  utter_alegrar:
+    - text: "No te preocupes, las cosas mejorarán."
+
+  utter_te_ayudo:
+    - text: "¿Te ayudó eso?"
+
+  utter_feliz:
+    - text: "¡Me alegra escuchar eso!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+rasa:
+  url: "http://localhost:5002/api"
+  recipe: default.v1
+  assistant_id: placeholder_default
+  language: es
+
+pipeline:
+  - name: ...
+    # Configuración específica del componente
+  - name: ...
+    # Configuración específica del componente
+
+policies:
+  - name: ...
+    # Configuración de la política
+  - name: ...
+    # Configuración de la política
