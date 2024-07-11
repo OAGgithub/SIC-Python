@@ -1,5 +1,11 @@
+import io
+import pickle
+
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import requests
+from flask import Flask, jsonify, request, send_file
 
 
 class EnfermedadesDF:
@@ -68,3 +74,5 @@ def mapear_clima(temperatura):
 def buscar_enfermedades_por_clima(clima, df):
     resultados = df[df['weather'] == clima]
     return resultados[['Disease', 'Fever', 'Cough', 'Fatigue', 'Difficulty Breathing']]
+
+

@@ -9,7 +9,7 @@ from flask import Flask, jsonify, request, send_file
 app = Flask(__name__)
 
 # Cargar el modelo entrenado
-with open('./DiagnosticCare/diagnostic_model.pkl', 'rb') as f:
+with open('./diagnostic_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Cargar las columnas de síntomas del dataset original
