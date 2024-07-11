@@ -51,7 +51,6 @@ def upload_file():
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
     
-    # Guardar el archivo
     if not os.path.exists('uploads'):
         os.makedirs('uploads')
     filename = os.path.join('uploads', file.filename)
@@ -60,7 +59,6 @@ def upload_file():
     # Procesar el archivo con tesseract OCR o PyPDF2
     try:
         text = extract_text(filename)
-        # Guardar el texto en el archivo Excel
         store_text(text)
         return jsonify({'text': text})
     except Exception as e:
