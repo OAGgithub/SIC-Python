@@ -9,7 +9,7 @@ from PyPDF2 import PdfReader
 app = Flask(__name__)
 
 # Configurar pytesseract 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r".\Tesseract-OCR\tesseract.exe"
 
 # Ruta del Excel 
 excel_file = 'Results.xlsx'
