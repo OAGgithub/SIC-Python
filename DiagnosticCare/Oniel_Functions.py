@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path = './Dataset/Disease_symptom_and_patient_profile_dataset_updated.xlsx'
+file_path = './DiagnosticCare/Dataset/Final_Disease_Weather_Dataset'
 df = pd.read_excel(file_path)
 
 class EnfermedadesDF:
