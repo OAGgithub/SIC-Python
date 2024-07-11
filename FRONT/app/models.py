@@ -1,26 +1,35 @@
 import pandas as pd
 import requests
 
+
 class EnfermedadesDF:
     def __init__(self, dataframe):
         self.df = dataframe
 
     def search_by_name(self, name):
-        return self.df[self.df['Disease'].str.contains(name, case=False, na=False)]
+       
+        return self.df[self.df['Disease'].str.contains(name, case=False, na=False)][['Disease', 'Description']]
 
     def get_all(self):
+       
         return self.df['Disease'].unique()
 
     def select_number_of_diseases(self, names, number):
+       
         filtered_df = self.df[self.df['Disease'].isin(names)]
-        return filtered_df.head(number)
+        return filtered_df[['Disease', 'Recommendations']].head(number)
 
     def filter_diseases(self, **filters):
+        
         filtered_df = self.df.copy()
         for key, value in filters.items():
             if key in filtered_df.columns:
                 filtered_df = filtered_df[filtered_df[key] == value]
-        return filtered_df
+        return filtered_df[['Disease', 'Recommendations']]
+
+    def get_recommendations(self):
+        return self.df[['Disease', 'Recommendations']]
+
 
 def obtener_temperatura(localidad, api_key):
     parameters = {'key': api_key, 'place_id': localidad}
