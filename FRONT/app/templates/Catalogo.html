@@ -6,9 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./Css/Catalogo.css">
-    <link rel="stylesheet" href="./Css/Index.css">
-    <link rel="stylesheet" href="./Css/Responsive.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Catalogo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Responsive.css') }}">
     <title>Diagnostic Care</title>
 </head>
 <body>
@@ -18,9 +18,8 @@
         <nav id="nav">
             <a href="./Index.html">
                 <div class="nav__logo">
-                    <img src="./Imagenes/Logo-3.svg" alt="img-logo">
-                    <h1>Diagnostic <br>
-                            Care</h1>
+                    <img src="{{ url_for('static', filename='Imagenes/Logo-3.svg') }}" alt="img-logo">
+                    <h1>Diagnostic <br> Care</h1>
                 </div>
             </a>
             <i class="fa-solid fa-bars" id="menu-abrir"></i>
@@ -36,11 +35,11 @@
             <div class="main-catalogo__encabezado">
                 <h2>Diagnostic Care</h2>
                 <h3>Catálogo</h3>
-                <img src="./Imagenes/encabezado_titulo2.png" alt="img-encabezado-titulo2">
+                <img src="{{ url_for('static', filename='Imagenes/encabezado_titulo2.png') }}" alt="img-encabezado-titulo2">
             </div>
             <div class="main-catalogo__barra-de-busqueda-content">
                 <form action="" class="main-catalogo__barra-de-busqueda">
-                    <button><img src="./Imagenes/busqueda.png" alt="img-busqueda"></button>
+                    <button><img src="{{ url_for('static', filename='Imagenes/busqueda.png') }}" alt="img-busqueda"></button>
                     <input type="search" name="search" id="search" placeholder="Buscar enfermedades">
                 </form>
             </div>
@@ -52,7 +51,7 @@
     <div class="section__enfermedades-cards-content">
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/resfriado.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/resfriado.png') }}" alt="img-resfriado">
                 <h3>Resfriado</h3>
             </div>
             <div class="face back">
@@ -63,7 +62,7 @@
         </div>
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/gripe.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/gripe.png') }}" alt="img-resfriado">
                 <h3>Gripe</h3>
             </div>
             <div class="face back">
@@ -74,7 +73,7 @@
         </div>
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/migraña.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/migraña.png') }}" alt="img-resfriado">
                 <h3>Migraña</h3>
             </div>
             <div class="face back">
@@ -85,7 +84,7 @@
         </div>
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/gastritis.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/gastritis.png') }}" alt="img-resfriado">
                 <h3>Gastritis</h3>
             </div>
             <div class="face back">
@@ -96,7 +95,7 @@
         </div>
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/asma.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/asma.png') }}" alt="img-resfriado">
                 <h3>Asma</h3>
             </div>
             <div class="face back">
@@ -107,7 +106,7 @@
         </div>
         <div class="section__enfermedades-cards">
             <div class="face front">
-                <img src="./Imagenes/diabetes.png" alt="img-resfriado">
+                <img src="{{ url_for('static', filename='Imagenes/diabetes.png') }}" alt="img-resfriado">
                 <h3>Diabetes</h3>
             </div>
             <div class="face back">
@@ -130,21 +129,21 @@
         <div class="section-contacto__container">
             <h3>Contact Us</h3>
             <div class="contacto__info-tel contacto-cont">
-                <img src="./Imagenes/telefono.png" alt="img-tel" class="contacto__icon-img">
+                <img src="{{ url_for('static', filename='Imagenes/telefono.png') }}" alt="img-tel" class="contacto__icon-img">
                 <div class="info-tel__content inf-content">
                     <h4>Número de Teléfono</h4>
                     <p>849-655-7463</p>
                 </div>
             </div>
             <div class="contacto__info-email contacto-cont">
-                <img src="./Imagenes/email.png" alt="img-email" class="contacto__icon-img">
+                <img src="{{ url_for('static', filename='Imagenes/email.png') }}" alt="img-email" class="contacto__icon-img">
                 <div class="info-email__content inf-content">
                     <h4>Correo Electrónico</h4>
                     <p>mathewmiller919@gmail.com</p>
                 </div>
             </div>
             <div class="contacto__info-direc contacto-cont">
-                <img src="./Imagenes/mapa.png" alt="img-direc" class="contacto__icon-img">
+                <img src="{{ url_for('static', filename='Imagenes/mapa.png') }}" alt="img-direc" class="contacto__icon-img">
                 <div class="info-direc__content inf-content">
                     <h4>Dirección</h4>
                     <p>Av. Tiradentes, Santo Domingo</p>
@@ -155,15 +154,15 @@
     <!-- footer  -->
      <footer id="footer">
         <div class="footer__icons-content">
-            <img src="./Imagenes/facebook.png" alt="img-facebook" class="footer__iconos">
-            <img src="./Imagenes/twitter.png" alt="img-twitter" class="footer__iconos">
-            <img src="./Imagenes/linkedin.png" alt="img-linkedin" class="footer__iconos">
-            <img src="./Imagenes/youtube.png" alt="img-youtube" class="footer__iconos">
+            <img src="{{ url_for('static', filename='Imagenes/facebook.png') }}" alt="img-facebook" class="footer__iconos">
+            <img src="{{ url_for('static', filename='Imagenes/twitter.png') }}" alt="img-twitter" class="footer__iconos">
+            <img src="{{ url_for('static', filename='Imagenes/linkedin.png') }}" alt="img-linkedin" class="footer__iconos">
+            <img src="{{ url_for('static', filename='Imagenes/youtube.png') }}" alt="img-youtube" class="footer__iconos">
         </div>
         <div class="footer__info">
             <p>&copy; 2024 Diagnostic Care. Todos los derechos reservados</p>
         </div>
     </footer>
-<script src="./Js/menu.js"></script>
+<script src="{{ url_for('static', filename='Js/menu.js') }}"></script>
 </body>
 </html>

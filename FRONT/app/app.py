@@ -14,11 +14,11 @@ from tabulate import tabulate
 app = Flask(__name__)
 
 # URL del dataset de enfermedades
-url_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/Python_Files/Dataset/Disease_symptom_and_patient_profile_dataset_updated.xlsx?raw=true'
+url_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
 df_enfermedades = pd.read_excel(url_enfermedades)
 
 # URL del dataset con información climática
-url_clima_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/Python_Files/Dataset/Disease_symptom_and_patient_profile_dataset_with_weather.xlsx?raw=true'
+url_clima_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
 df_clima_enfermedades = pd.read_excel(url_clima_enfermedades)
 
 #Datasets
