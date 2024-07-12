@@ -1,30 +1,36 @@
 import io
 import pickle
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import requests
-from flask import Flask, jsonify, request, send_file, render_template
-from models import EnfermedadesDF, buscar_enfermedades_por_clima, mapear_clima, obtener_temperatura
+import seaborn as sns
+from flask import Flask, jsonify, render_template, request, send_file
+from models import (EnfermedadesDF, buscar_enfermedades_por_clima,
+                    mapear_clima, obtener_temperatura)
 from tabulate import tabulate
 
 # Configuración de la aplicación Flask
 app = Flask(__name__)
 
 # URL del dataset de enfermedades
-url_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
-df_enfermedades = pd.read_csv(url_enfermedades)
+url_enfermedades = 'Proyect/Dataset/Diseases_Training.csv'
+df_training = pd.read_csv(url_enfermedades)
+
+url_enfermedades2 = 'Proyect/Dataset/Diseases_Testing.csv'
+df_testing = pd.read_csv(url_enfermedades2)
 
 # URL del dataset con información climática (usando el mismo URL para ambos datasets, puedes ajustar si es necesario)
-url_clima_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
-df_clima_enfermedades = pd.read_csv(url_clima_enfermedades)
+url_clima_enfermedades = 'Proyect/Dataset/Final_Disease_Weather_Dataset.xlsx'
+df_clima_enfermedades = pd.read_excel(url_clima_enfermedades)
 
 # Cargar el modelo entrenado
-with open('./diagnostic_model.pkl', 'rb') as f:
+with open('Proyect/FRONT_/diagnostic_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Cargar las columnas de síntomas del dataset original
-columns = df_enfermedades.drop(['prognosis', 'Unnamed: 133'], axis=1).columns
+columns = df_training.drop(['prognosis', 'Unnamed: 133'], axis=1).columns
 
 # Diccionario de traducción de síntomas
 symptom_translation = {
@@ -162,7 +168,7 @@ symptom_translation = {
     "yellow_crust_ooze": "costra amarilla rezumante"
 }
 # Instanciar la clase EnfermedadesDF para trabajar con los datos de enfermedades
-data = EnfermedadesDF(df_enfermedades)
+data = EnfermedadesDF(df_clima_enfermedades)
 
 # Rutas de la aplicación Flask
 @app.route('/')
