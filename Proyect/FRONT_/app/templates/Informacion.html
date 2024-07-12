@@ -83,7 +83,7 @@
             </div>
             <div class="section__enfermedades-cards">
                 <div class="face front">
-                    <img src="{{ url_for('static', filename='Imagenes/migraña.png') }}" alt="img-migraña">
+                    <img src="{{ url_for('static', filename='Imagenes\migraña.png') }}" alt="img-migraña">
                     <h3>Migraña</h3>
                 </div>
                 <div class="face back">
@@ -122,19 +122,25 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url_for('catalogo') }}"><span>Ver más</span></a>
+        <div class="section__pagination">
+            <span><i class="fa-solid fa-chevron-left"></i></span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
     </section>
-    <!-- Sección de recomendaciones y consejos -->
-    <section id="section__recomendaciones">
+     <!-- seccion de recomendaciones y consejos -->
+     <section id="section__recomendaciones">
         <div class="section__recomendaciones-content">
-            <h2>Recomendaciones y consejos</h2>
-            <p>Gracias por preferirnos, valoramos sus recomendaciones y consejos de salud para tener un mejor estilo de vida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum urna massa. Donec eu pulvinar tortor. Pellentesque ornare feugiat ex eget suscipit.</p>
-            <a href="{{ url_for('informacion') }}"><span>Ver más</span></a>
+            <h2>Recomendaciones y consejos </h2>
+            <p>Gracias por preferirnos, valoramos sus recomendaciones y consejos de salud, esperamos sus comentarios</p>
+            <form>
+                <textarea name="textarea" id="textarea" placeholder="Ingrese sus recomendaciones"></textarea>
+                <input type="submit" value="Enviar">
+            </form>
         </div>
-        <div class="section__recomendaciones-img">
-            <img src="{{ url_for('static', filename='Imagenes/Recommendations.svg') }}" alt="img-recomendations">
-        </div>
-    </section>
+      </section>
     <!-- Sección de contacto -->
     <section id="section-contacto">
         <div class="section-contacto__container">
