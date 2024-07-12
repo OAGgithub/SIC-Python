@@ -43,12 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify({ symptoms: symptomsList }),
     })
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const url = URL.createObjectURL(imageBlob);
+      .then((response) => response.json())
+      .then((data) => {
         const img = document.createElement("img");
-        img.src = url;
+        img.src = `data:image/png;base64,${data.image}`;
         document.body.appendChild(img);
+
+        const resultsDiv = document.createElement("div");
+        resultsDiv.innerHTML = data.table;
+        document.body.appendChild(resultsDiv);
       })
       .catch((error) => console.error("Error al diagnosticar:", error));
   };

@@ -11,6 +11,7 @@ astunparse==1.6.3
 async-timeout==4.0.3
 attrs==22.1.0
 Babel==2.15.0
+base64
 backports.zoneinfo==0.2.1
 bidict==0.23.1
 blinker==1.8.2

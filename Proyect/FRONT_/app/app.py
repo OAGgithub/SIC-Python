@@ -1,3 +1,4 @@
+import base64
 import io
 import pickle
 
@@ -228,9 +229,10 @@ def analizar_clima():
 
     else:
         return "No se pudo obtener la temperatura actual."
-@app.route('/predict',methods=['POST'])
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json  
+    data = request.json
     input_symptoms = data['symptoms']
     
     # Crear un DataFrame con los síntomas proporcionados
@@ -264,6 +266,9 @@ def predict():
     plt.savefig(img, format='png')
     img.seek(0)
     plt.close()
+
+    # Codificar la imagen en base64
+    img_base64 = base64.b64encode(img.getvalue()).decode('utf-8')
     
     # Obtener la tabla con el resto de la información
     rest_of_data = {
@@ -271,10 +276,10 @@ def predict():
         'probabilities': probs
     }
     
-    tabla_resultados = tabulate(rest_of_data, headers='keys', tablefmt='fancy_grid')
+    tabla_resultados = tabulate(rest_of_data, headers='keys', tablefmt='html')
     
-    # Devolver el gráfico y la tabla como parte de la respuesta
-    return send_file(img, mimetype='image/png'), tabla_resultados
+    # Devolver el gráfico y la tabla como parte de la respuesta JSON
+    return jsonify({"image": img_base64, "table": tabla_resultados})
 
 @app.route('/getsymptoms', methods=['GET'])
 def get_symptoms():
