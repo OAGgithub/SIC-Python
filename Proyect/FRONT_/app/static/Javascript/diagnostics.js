@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bloque.appendChild(img);
 
         const resultsDiv = document.createElement("div");
+        resultsDiv.classList.add('disen');
         resultsDiv.innerHTML = data.table;
         bloque.appendChild(resultsDiv);
       })
