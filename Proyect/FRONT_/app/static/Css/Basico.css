@@ -33,6 +33,14 @@
     display: flex;
     gap: 20px;
 }
+.disen{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+.disen table, th{
+    outline: 1px solid #000;
+}
 
 .dropdown {
     position: relative;
