@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const img = document.createElement("img");
         img.src = `data:image/png;base64,${data.image}`;
         const bloque = document.querySelector(".container");
+        bloque.classList('c')
         bloque.appendChild(img);
 
         const resultsDiv = document.createElement("div");
