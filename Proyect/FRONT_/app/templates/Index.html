@@ -68,26 +68,79 @@
             <button class="button">Empieza ahora</button>
         </a>
     </section>
-    <!-- Sección de enfermedades comunes -->
+    <!-- seccion de enfermedades comunes -->
     <section id="section__enfermedades-comunes">
         <h2>Enfermedades comunes</h2>
         <div class="section__enfermedades-cards-content">
-            {% for enfermedad in enfermedades %}
             <div class="section__enfermedades-cards">
                 <div class="face front">
-                    <img src="{{ url_for('static', filename='imagenes/' ~ enfermedad.imagen) }}" alt="img-{{ enfermedad.nombre | lower }}">
-                    <h3>{{ enfermedad.nombre }}</h3>
+                    <img src="{{ url_for('static', filename='Imagenes/resfriado.png') }}" alt="img-resfriado">
+                    <h3>Resfriado</h3>
                 </div>
                 <div class="face back">
-                    <h3>{{ enfermedad.nombre }}</h3>
-                    <p>{{ enfermedad.descripcion }}</p>
-                    <a href="{{ url_for('analisis') }}"><button>Consultar</button></a>
+                    <h3>Resfriado</h3>
+                    <p>El resfriado es una infección viral común que afecta el tracto respiratorio superior, causando síntomas como congestión nasal, estornudos, dolor de garganta y tos leve. Aunque suele ser leve y autolimitado, puede causar molestias significativas durante varios días y es altamente contagioso entre personas.</p>
                 </div>
             </div>
-            {% endfor %}
+            <div class="section__enfermedades-cards">
+                <div class="face front">
+                    <img src="{{ url_for('static', filename='Imagenes/gripe.png') }}" alt="img-gripe">
+                    <h3>Gripe</h3>
+                </div>
+                <div class="face back">
+                    <h3>Gripe</h3>
+                    <p>La gripe es una enfermedad viral contagiosa que afecta las vías respiratorias superiores, causando síntomas como fiebre, dolor de cabeza, dolores musculares y fatiga extrema. Puede provocar complicaciones graves, especialmente en personas de riesgo como niños pequeños, adultos mayores o personas con enfermedades crónicas.</p>
+                </div>
+            </div>
+            <div class="section__enfermedades-cards">
+                <div class="face front">
+                    <img src="{{ url_for('static', filename='Imagenes\migrana.jpg') }}" alt="img-migrana">
+                    <h3>Migraña</h3>
+                </div>
+                <div class="face back">
+                    <h3>Migraña</h3>
+                    <p>La migraña es un tipo de dolor de cabeza intenso y pulsátil que puede estar acompañado de náuseas, vómitos, y sensibilidad extrema a la luz y al sonido. Suele afectar a un lado de la cabeza y puede durar horas o incluso días, afectando significativamente la calidad de vida de quienes la padecen.</p>
+                </div>
+            </div>
+            <div class="section__enfermedades-cards">
+                <div class="face front">
+                    <img src="{{ url_for('static', filename='Imagenes/gastritis.png') }}" alt="img-gastritis">
+                    <h3>Gastritis</h3>
+                </div>
+                <div class="face back">
+                    <h3>Gastritis</h3>
+                    <p>La gastritis es una inflamación del revestimiento del estómago, generalmente causada por infecciones bacterianas, uso excesivo de medicamentos como el ibuprofeno, estrés o consumo excesivo de alcohol. Los síntomas incluyen dolor abdominal, náuseas, vómitos y sensación de ardor en el estómago.</p>
+                </div>
+            </div>
+            <div class="section__enfermedades-cards">
+                <div class="face front">
+                    <img src="{{ url_for('static', filename='Imagenes/asma.png') }}" alt="img-asma">
+                    <h3>Asma</h3>
+                </div>
+                <div class="face back">
+                    <h3>Asma</h3>
+                    <p>El asma es una enfermedad crónica de las vías respiratorias que causa inflamación y estrechamiento, dificultando la respiración. Los síntomas incluyen sibilancias, opresión en el pecho, tos y dificultad para respirar, a menudo desencadenados por alergenos o factores ambientales.</p>
+                </div>
+            </div>
+            <div class="section__enfermedades-cards">
+                <div class="face front">
+                    <img src="{{ url_for('static', filename='Imagenes/diabetes.png') }}" alt="img-diabetes">
+                    <h3>Diabetes</h3>
+                </div>
+                <div class="face back">
+                    <h3>Diabetes</h3>
+                    <p>La diabetes es una enfermedad crónica caracterizada por niveles elevados de glucosa en la sangre debido a la incapacidad del cuerpo para producir o utilizar adecuadamente la insulina. Esto puede resultar en complicaciones graves a largo plazo, afectando diversos órganos y sistemas del cuerpo.</p>
+                </div>
+            </div>
         </div>
-        <a href="#"><span>Ver más</span></a>
-    </section>
+        <div class="section__pagination">
+            <span><i class="fa-solid fa-chevron-left"></i></span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+        </section>
 
     <!-- Sección de contacto -->
     <section id="section-contacto">
