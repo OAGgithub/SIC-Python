@@ -95,7 +95,7 @@ html {
     text-wrap: balance;
     font-weight: 300;
 }
-.buttom{
+.button{
     border: none;
     display: inline-block;
     padding: 15px 30px;
@@ -103,7 +103,7 @@ html {
     color: var(--blanco);
     font-size: 24px;
 }
-.buttom:hover{
+.button:hover{
     opacity: .8;
     transition: opacity .08s;
 }
