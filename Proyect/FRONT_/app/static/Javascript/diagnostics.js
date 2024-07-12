@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const img = document.createElement("img");
         img.src = `data:image/png;base64,${data.image}`;
         const bloque = document.querySelector('.container');
-        document.bloque.appendChild(img);
+        document.body.appendChild(img);
 
         const resultsDiv = document.createElement("div");
         resultsDiv.innerHTML = data.table;
-        document.bloque.appendChild(resultsDiv);
+        document.body.appendChild(resultsDiv);
       })
       .catch((error) => console.error("Error al diagnosticar:", error));
   };
