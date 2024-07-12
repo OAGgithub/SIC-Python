@@ -1,20 +1,23 @@
-import base64
 import io
 import pickle
 
+import matplotlib
+
+matplotlib.use('Agg')  
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import requests
 import seaborn as sns
 from flask import Flask, jsonify, render_template, request, send_file
+from flask_cors import CORS
 from models import (EnfermedadesDF, buscar_enfermedades_por_clima,
                     mapear_clima, obtener_temperatura)
 from tabulate import tabulate
 
 # Configuración de la aplicación Flask
 app = Flask(__name__)
-
+CORS(app)
 # URL del dataset de enfermedades
 url_enfermedades = 'Proyect/Dataset/Diseases_Training.csv'
 df_training = pd.read_csv(url_enfermedades)
@@ -225,30 +228,29 @@ def analizar_clima():
 
     else:
         return "No se pudo obtener la temperatura actual."
-
-@app.route('/predict', methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
-    data = request.json
+    data = request.json  
     input_symptoms = data['symptoms']
-
+    
     # Crear un DataFrame con los síntomas proporcionados
     input_data = np.zeros(len(columns))
     for symptom in input_symptoms:
         if symptom in columns:
             input_data[columns.get_loc(symptom)] = 1
-
+    
     input_df = pd.DataFrame([input_data], columns=columns)
-
+    
     probabilities = model.predict_proba(input_df)[0]
-
+    
     # Obtener las 10 enfermedades con mayor probabilidad
     top_10_indices = probabilities.argsort()[-10:][::-1]
     top_10_diseases = [(model.classes_[i], probabilities[i]) for i in top_10_indices]
-
+    
     # Preparar los datos para enviar como JSON
     diseases = [disease for disease, prob in top_10_diseases]
     probs = [(prob * 100) for disease, prob in top_10_diseases]
-
+    
     # Generar gráfico
     plt.figure(figsize=(10, 6))
     plt.barh(diseases, probs, color='skyblue')
@@ -256,28 +258,23 @@ def predict():
     plt.title('Top 10 Enfermedades Probables')
     plt.gca().invert_yaxis()
     plt.xticks(np.arange(0, 101, 10), [f'{i}%' for i in range(0, 101, 10)])
-
+    
     # Guardar el gráfico en un objeto BytesIO
     img = io.BytesIO()
     plt.savefig(img, format='png')
     img.seek(0)
     plt.close()
-
+    
     # Obtener la tabla con el resto de la información
     rest_of_data = {
         'diseases': diseases,
         'probabilities': probs
     }
-
-    # Codificar la imagen en base64
-    img_base64 = base64.b64encode(img.getvalue()).decode()
-
-    response = {
-        'image': img_base64,
-        'rest_of_data': rest_of_data
-    }
-
-    return jsonify(response)
+    
+    tabla_resultados = tabulate(rest_of_data, headers='keys', tablefmt='fancy_grid')
+    
+    # Devolver el gráfico y la tabla como parte de la respuesta
+    return send_file(img, mimetype='image/png'), tabla_resultados
 
 @app.route('/getsymptoms', methods=['GET'])
 def get_symptoms():

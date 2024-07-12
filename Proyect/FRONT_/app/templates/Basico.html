@@ -80,9 +80,7 @@
           <div class="dropdown-select" onclick="toggleDropdown()">
             Selecciona los síntomas
           </div>
-          <div class="dropdown-options" id="dropdown-options">
-            <!-- Aquí se cargarán dinámicamente los síntomas en español -->
-          </div>
+          <div class="dropdown-options" id="dropdown-options"></div>
         </div>
         <button id="capture-btn">
           <img
@@ -94,7 +92,7 @@
       <div id="selected-symptoms" class="selected-options">
         <span id="symptoms-list"></span>
       </div>
-      <button id="diagnose-btn" onclick="diagnose()">Diagnosticar</button>
+      <button id="diagnose-btn">Diagnosticar</button>
     </div>
     <div id="drop-area-container">
       <div class="drop-area__content">
@@ -135,6 +133,7 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='Js/diagnostic.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/diagnostics.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
   </body>
 </html>
