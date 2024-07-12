@@ -6,9 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Css/Responsive.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Css/informacion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/informacion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/catalogo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/basico.css') }}">
     <title>Diagnostic Care</title>
 </head>
 <body>
@@ -35,7 +37,7 @@
         <main id="main-informacion">
             <div class="main-informacion__encabezado">
                 <h1>Recibe un pronóstico básico de enfermedades en segundos</h1>
-                <a href="{{ url_for('analisis') }}"><button class="button">Recibir</button></a>
+                <a href="{{ url_for('basico') }}"><button class="button">Recibir</button></a>
             </div>
             <div class="main-informacion__container">
                 <div class="main-informacion__slider">

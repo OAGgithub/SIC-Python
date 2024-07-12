@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/informacion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/catalogo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/basico.css') }}">
     <title>Diagnostic Care</title>
 </head>
 <body>
@@ -36,7 +38,7 @@
             <div class="main-index__content">
                 <h1>Diagnóstico de enfermedades al alcance de tu mano</h1>
                 <p>Introduce tus síntomas y recibe un diagnóstico probable en minutos</p>
-                <a href="{{ url_for('analisis') }}">
+                <a href="{{ url_for('basico') }}">
                     <button class="button">Empieza ahora</button>
                 </a>
             </div>
@@ -62,7 +64,7 @@
                 <p>Nuestro análisis práctico es una herramienta avanzada que le brinda la opción de completar un formulario detallado con información como edad, sexo y otros datos relevantes. Esta recopilación exhaustiva de información nos permite ofrecerle resultados más precisos y personalizados para mejorar su experiencia y comprensión de su estado de salud.</p>
             </div>
         </div>
-        <a href="{{ url_for('analisis') }}">
+        <a href="{{ url_for('basico') }}">
             <button class="button">Empieza ahora</button>
         </a>
     </section>
