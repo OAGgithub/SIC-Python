@@ -13,17 +13,15 @@ from tabulate import tabulate
 
 app = Flask(__name__)
 
-# URL del dataset de enfermedades
-url_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
-df_enfermedades = pd.read_excel(url_enfermedades)
+
 
 # URL del dataset con información climática
-url_clima_enfermedades = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
+url_clima_enfermedades = '../Dataset/Final_Disease_Weather_Dataset.xlsx'
 df_clima_enfermedades = pd.read_excel(url_clima_enfermedades)
 
 #Datasets
-url_dataset_testing = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Testing.csv'
-url_dataset_training = 'https://github.com/OAGgithub/SIC-Python/blob/main/DiagnosticCare/Dataset/Diseases_Training.csv'
+url_dataset_testing = '../Dataset/Diseases_Testing.csv'
+url_dataset_training = '../Dataset/Diseases_Training.csv'
 df_training = pd.read_csv(url_dataset_training)
 df_testing = pd.read_csv(url_dataset_testing)
 # Cargar el modelo entrenado
@@ -172,7 +170,7 @@ symptom_translation = {
 
 
 # Instanciar la clase EnfermedadesDF para trabajar con los datos de enfermedades
-data = EnfermedadesDF(df_enfermedades)
+data = EnfermedadesDF(df_clima_enfermedades)
 
 # Rutas de la aplicación Flask
 @app.route('/')
@@ -188,11 +186,11 @@ def catalogo():
     return render_template('Catalogo.html')
 
 @app.route('/basico')
-def catalogo():
+def basico():
     return render_template('Basico.html')
 
 @app.route('/Profundo')
-def catalogo():
+def profundo():
     return render_template('Profundo.html')
 
 @app.route('/informacion')
