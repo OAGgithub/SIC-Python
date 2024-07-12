@@ -47,12 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         const img = document.createElement("img");
         img.src = `data:image/png;base64,${data.image}`;
-        const bloque = document.querySelector('.container');
-        document.bloque.appendChild(img);
+        const bloque = document.querySelector(".container");
+        bloque.appendChild(img);
 
         const resultsDiv = document.createElement("div");
         resultsDiv.innerHTML = data.table;
-        document.bloque.appendChild(resultsDiv);
+        bloque.appendChild(resultsDiv);
       })
       .catch((error) => console.error("Error al diagnosticar:", error));
   };
